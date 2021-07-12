@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="date" content="2021-07-10" scheme="YYYY-MM-DD">
+        <meta name="viewport" content="width=device-width" />
+        <title>usefull commands</title>
+        <link rel="stylesheet" href="style.css" type="text/css"
+         media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="pygmentize.css" type="text/css"
+         media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+
+<h3>Basic Commands</h3>
+<p>Add task: <code>$ task add Read Taskwarrior documents later</code></p>
+<p>List tasks: <code>$ task</code></p>
+<p>Mark as done: <code>$ task 2 done</code></p>
+<p>Edit task: <code>$ task 1 modify description: my edited description</code></p>
+<p>Delete task: <code>$ task 1 delete</code></p>
+<h3>Advanced Commands</h3>
+<p>Add priority to task: <code>$ task add my task priority:H</code></p>
+<p>Add tag and project: <code>$ task add my task +work project:website</code></p>
+<p>Add dependency to other task: <code>$ task add my task depends:&lt;id&gt;</code></p>
+<p>Define context and apply tag to it: <code>$ task context define work +work</code></p>
+<h2>Visuals and Reports</h2>
+<p>Burndowns: <code>$ task burndown.daily</code></p>
+<p>Calendar: <code>$ task calendar</code></p>
+<p>Reports: <code>$ task timesheet</code></p>
+
+    </body>
+</html>

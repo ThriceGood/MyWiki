@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="date" content="2021-07-10" scheme="YYYY-MM-DD">
+        <meta name="viewport" content="width=device-width" />
+        <title>docker_commands</title>
+        <link rel="stylesheet" href="style.css" type="text/css"
+         media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="pygmentize.css" type="text/css"
+         media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+
+<h3>build image</h3>
+<p>docker build -t openillinkdocker_app .</p>
+<h3>save/load image to/from tar.gz</h3>
+<p>docker save openillinkdocker_app | gzip &gt; openillinkdocker_app.tar.gz</p>
+<p>docker load &lt; openillinkdocker_app.tar.gz</p>
+<h3>cleanup images</h3>
+<p>docker image rm openillinkdocker_app</p>
+<p>docker rmi openillinkdocker_app</p>
+<h3>remove all <none> images</h3>
+<p>docker rmi $(docker images -f "dangling=true" -q) --force</p>
+<h3>attached to running container</h3>
+<p>docker exec -ti openillinkdocker_app /bin/bash</p>
+<h3>extract file from running container</h3>
+<p>docker cp openillink_app_1:/etc/shibboleth/openillink-dev.ist.ac.at.metadata.xml .</p>
+<h3>dump and restore database backups</h3>
+<p>https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb</p>
+<h4>backup</h4>
+<p>docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE &gt; backup.sql</p>
+<h4>restore</h4>
+<p>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE</p>
+
+    </body>
+</html>
