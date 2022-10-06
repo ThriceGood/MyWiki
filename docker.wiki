@@ -1,0 +1,50 @@
+
+= Docker =
+
+=== build image ===
+
+`docker build -t my_app .`
+
+=== save/load image to/from tar.gz ===
+
+`docker save my_app | gzip > my_app.tar.gz`
+
+`docker load < my_app.tar.gz`
+
+=== cleanup images ===
+
+`docker image rm my_app`
+
+`docker rmi my_app`
+
+=== remove all images ===
+
+`docker rmi $(docker images -f "dangling=true" -q) --force`
+
+=== attached to running container ===
+
+`docker exec -ti my_app /bin/bash`
+
+`docker exec -ti alpine-container /bin/sh`
+
+=== extract file from running container ===
+
+`docker cp my_app_1:/etc/shibboleth/my-app-dev.ist.ac.at.metadata.xml .`
+
+=== dump and restore database backups ===
+
+https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb
+
+backup: `docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql`
+
+restore: `cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE`
+
+= Docker Compose =
+
+=== build and run specific service ===
+
+`docker compose build my-service`
+
+`docker compose up -d my-service`
+
+Or to build and run (without dependencies): `docker compose up -d --no-deps --build my-service`

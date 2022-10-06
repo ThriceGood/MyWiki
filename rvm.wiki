@@ -1,0 +1,7 @@
+
+= RVM =
+
+=== Install Ruby with older OpenSSL library ===
+
+`rvm pkg install openssl`
+`rvm install 2.7.2 --with-openssl-dir=/usr/share/rvm/usr`

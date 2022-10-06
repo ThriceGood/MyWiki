@@ -1,0 +1,20 @@
+
+= PostgreSQL =
+
+`su postgres`
+
+`psql postgres`
+
+This should log you into postgres and the postgres database
+
+== useful commands ==
+
+Show help: `\h`
+
+List databases: `\l`
+
+Connect to database: `\c`
+
+Listing tables: `\dt`
+
+Quit: `\q`

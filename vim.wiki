@@ -1,0 +1,34 @@
+
+= Vim =
+
+== Vim ==
+
+Change windows: `ctrl + w` (then use the arrow keys to switch window)
+
+Virtical window split: `:vsp`
+
+Horizontal window split: `:sp`
+
+Move up and down a half screen: `ctrl + u` `ctrl + d`
+
+Open terminal window: `:term`
+
+Increase/decrease height of split window: `ctrl + w +/-`
+
+Increase/decrease width of split window: `ctrl + w >/<`
+
+Set equal height and width of all windows: `ctrl + w =`
+
+Increase/decrease transparency: `ctrl + shift + up/down`
+
+== NERDTree ==
+
+Open NERDTree: `\n`
+
+Press `s` to open file from NERDTree into virtical split Press `i` to open file from NERDTree into horizontal split
+
+Refresh NERDTree: `shift + r`
+
+== FZF ==
+
+Open FZF: `\f`

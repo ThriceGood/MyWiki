@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>docker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div id="Docker"><h1 id="Docker" class="header"><a href="#Docker">Docker</a></h1></div>
+
+<div id="Docker-build image"><h3 id="build image" class="header"><a href="#Docker-build image">build image</a></h3></div>
+
+<p>
+<code>docker build -t my_app .</code>
+</p>
+
+<div id="Docker-save/load image to/from tar.gz"><h3 id="save/load image to/from tar.gz" class="header"><a href="#Docker-save/load image to/from tar.gz">save/load image to/from tar.gz</a></h3></div>
+
+<p>
+<code>docker save my_app | gzip &gt; my_app.tar.gz</code>
+</p>
+
+<p>
+<code>docker load &lt; my_app.tar.gz</code>
+</p>
+
+<div id="Docker-cleanup images"><h3 id="cleanup images" class="header"><a href="#Docker-cleanup images">cleanup images</a></h3></div>
+
+<p>
+<code>docker image rm my_app</code>
+</p>
+
+<p>
+<code>docker rmi my_app</code>
+</p>
+
+<div id="Docker-remove all images"><h3 id="remove all images" class="header"><a href="#Docker-remove all images">remove all images</a></h3></div>
+
+<p>
+<code>docker rmi $(docker images -f "dangling=true" -q) --force</code>
+</p>
+
+<div id="Docker-attached to running container"><h3 id="attached to running container" class="header"><a href="#Docker-attached to running container">attached to running container</a></h3></div>
+
+<p>
+<code>docker exec -ti my_app /bin/bash</code>
+</p>
+
+<p>
+<code>docker exec -ti alpine-container /bin/sh</code>
+</p>
+
+<div id="Docker-extract file from running container"><h3 id="extract file from running container" class="header"><a href="#Docker-extract file from running container">extract file from running container</a></h3></div>
+
+<p>
+<code>docker cp my_app_1:/etc/shibboleth/my-app-dev.ist.ac.at.metadata.xml .</code>
+</p>
+
+<div id="Docker-dump and restore database backups"><h3 id="dump and restore database backups" class="header"><a href="#Docker-dump and restore database backups">dump and restore database backups</a></h3></div>
+
+<p>
+<a href="https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb">https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb</a>
+</p>
+
+<p>
+backup: <code>docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE &gt; backup.sql</code>
+</p>
+
+<p>
+restore: <code>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE</code>
+</p>
+
+<div id="Docker Compose"><h1 id="Docker Compose" class="header"><a href="#Docker Compose">Docker Compose</a></h1></div>
+
+<div id="Docker Compose-build and run specific service"><h3 id="build and run specific service" class="header"><a href="#Docker Compose-build and run specific service">build and run specific service</a></h3></div>
+
+<p>
+<code>docker compose build my-service</code>
+</p>
+
+<p>
+<code>docker compose up -d my-service</code>
+</p>
+
+<p>
+Or to build and run (without dependencies): <code>docker compose up -d --no-deps --build my-service</code>
+</p>
+
+</body>
+</html>
